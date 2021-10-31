@@ -10,8 +10,8 @@
     <text class="text-color-primary">{{ data.apellido }}</text>
      <text class="text-color-primary">{{ data.telefono }}</text>
   
-     <button class="button" v-bind:onPress="exclaim" :title="message" />
-     <button v-bind:onPress="reset" :title="text" />
+     <button class="button" v-bind:onPress="exclaim" :title="txtActualizar" />
+     
   
 </view>
 
@@ -39,8 +39,8 @@ created() {
 
 data: [ ],
 
-      message: "boton 1",
-      text:"boton 2"
+      txtActualizar: "actualizar",
+      txtEliminar:"eliminar"
     };
   },
 
@@ -77,7 +77,7 @@ data: [ ],
  
   margin: 1px;
   height: 200px;
-  width: 400px;
+  width: 200px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   align-items: center;  
