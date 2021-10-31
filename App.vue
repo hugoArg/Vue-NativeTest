@@ -3,8 +3,12 @@
         
 <view class="container">
 
- <view class="card" v-for="todo in todos" :key="todo.text" >
-   <text class="text-color-primary">{{ todo.text }}</text>
+ <view class="card" v-for="data in data" :key="data.info" >
+
+  <text class="text-color-primary">{{ data.id }}</text>
+   <text class="text-color-primary">{{ data.nombre }}</text>
+    <text class="text-color-primary">{{ data.apellido }}</text>
+     <text class="text-color-primary">{{ data.telefono }}</text>
   
      <button class="button" v-bind:onPress="exclaim" :title="message" />
      <button v-bind:onPress="reset" :title="text" />
@@ -20,22 +24,20 @@
 
 
 <script>
+    import axios from "axios";
 export default {
+
+created() {
+  axios.get("https://prueba-db-001.herokuapp.com/api/clientes").then((result) => {
+    console.log(result.data);
+    this.data = result.data;
+  })
+},
+
   data() {
     return {
 
-todos: [ 
-        { text: "1" },
-        { text: "2" },
-        { text: "3" },
-        { text: "4" },
-        { text: "5" },
-        { text: "6" },
-        { text: "7" },
-        { text: "8" },
-        { text: "9" },
-        
-      ],
+data: [ ],
 
       message: "boton 1",
       text:"boton 2"
@@ -51,6 +53,7 @@ todos: [
     alert("texto de prueba");
 
     }
+
   },
 };
 </script>
@@ -74,7 +77,7 @@ todos: [
  
   margin: 1px;
   height: 200px;
-  width: 200px;
+  width: 400px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   align-items: center;  
