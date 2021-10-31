@@ -3,7 +3,7 @@
         
 <view class="container">
 
- <view class="card" v-for="data in data" :key="data.info" >
+ <view class="card" v-for="data in data" :key="data.id" >
 
   <text class="text-color-primary">{{ data.id }}</text>
    <text class="text-color-primary">{{ data.nombre }}</text>
